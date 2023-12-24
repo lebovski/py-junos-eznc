@@ -3,7 +3,7 @@ try:
 except ImportError:
     import unittest
 from jnpr.junos.utils.config import Config
-from nose.plugins.attrib import attr
+
 from mock import patch, MagicMock, call
 import re
 import sys
@@ -14,7 +14,6 @@ import socket
 
 from jnpr.junos.console import Console
 from jnpr.junos.transport.tty_netconf import tty_netconf
-from jnpr.junos.transport.tty_telnet import Terminal
 
 
 if sys.version < "3":
@@ -23,7 +22,6 @@ else:
     builtin_string = "builtins"
 
 
-@attr("unit")
 class TestConsole(unittest.TestCase):
     @patch("jnpr.junos.transport.tty_telnet.Telnet._tty_open")
     @patch("jnpr.junos.transport.tty_telnet.telnetlib.Telnet.expect")
